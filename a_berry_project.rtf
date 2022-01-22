@@ -1,0 +1,556 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 TASK #1
+\fs24 \
+\
+CREATE SCHEMA `a_berry_project` ;\
+\
+CREATE TABLE `a_berry_project`.`customers` (\
+  `customer_id` INT NOT NULL AUTO_INCREMENT,\
+  `first_name` VARCHAR(45) NOT NULL,\
+  `last_name` VARCHAR(45) NOT NULL,\
+  `date_of_birth` DATE NOT NULL,\
+  `height` FLOAT NOT NULL,\
+  `weight` INT NOT NULL,\
+  PRIMARY KEY (`customer_id`));\
+\
+\
+CREATE TABLE `a_berry_project`.`automobile` (\
+  `automobile_id` INT NOT NULL AUTO_INCREMENT,\
+  `make` VARCHAR(45) NOT NULL,\
+  `model` VARCHAR(45) NOT NULL,\
+  `vin` VARCHAR(45) NOT NULL,\
+  PRIMARY KEY (`automobile_id`));\
+\
+CREATE TABLE `a_berry_project`.`address` (\
+  `address_id` INT NOT NULL AUTO_INCREMENT,\
+  `customer_id` INT NOT NULL,\
+  `street_address_num` VARCHAR(45) NOT NULL,\
+  `street_address_name` VARCHAR(45) NOT NULL,\
+  `apt__suite_num` VARCHAR(45) NULL,\
+  `city` VARCHAR(45) NOT NULL,\
+  `state` VARCHAR(45) NOT NULL,\
+  `zip` INT NOT NULL,\
+  `address_description` CHAR(1) NOT NULL,\
+  PRIMARY KEY (`address_id`));\
+\
+\
+CREATE TABLE `a_berry_project`.`sales` (\
+  `sale_id` INT NOT NULL AUTO_INCREMENT,\
+  `date_of_sale` DATE NOT NULL,\
+  `automobile_id` INT NOT NULL,\
+  `customer_id` INT NOT NULL,\
+  `total_price` DECIMAL(7,2) NOT NULL,\
+  `employee_id` INT NOT NULL,\
+  PRIMARY KEY (`sale_id`));\
+\
+\
+CREATE TABLE `a_berry_project`.`employees` (\
+  `employee_id` INT NOT NULL AUTO_INCREMENT,\
+  `first_name` VARCHAR(45) NOT NULL,\
+  `last_name` VARCHAR(45) NOT NULL,\
+  `hire_date` DATE NOT NULL,\
+  PRIMARY KEY (`employee_id`));\
+\
+\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('1', 'Cathy', 'Smith', '1981-02-17', '5.7', '120');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('2', 'Tracy', 'Andrews', '1972-03-01', '5.5', '104');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('3', 'Giselle', 'Cho', '1975-04-21', '5.10', '130');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('4', 'Claire', 'Brown', '1984-09-21', '5.5', '128');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('5', 'Amanda', 'Kent', '1970-03-26', '5.5', '110');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('6', 'Steven', 'Bow', '1972-08-18', '5.10', '180');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('7', 'Leon', 'Driver', '1967-05-12', '5.11', '175');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('8', 'Patrick', 'Klien', '1973-02-19', '6.2', '187');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('9', 'Mark', 'Fields', '1913-12-04', '5.8', '160');\
+INSERT INTO `a_berry_project`.`customers` (`customer_id`, `first_name`, `last_name`, `date_of_birth`, `height`, `weight`) VALUES ('10', 'Carl', 'Newroad', '1976-10-21', '5.9', '200');\
+\'97added AUTO_INCREMENT post table creatiom.\
+\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('1', '1921', 'State St.', 'New Orleans', 'LA', '70006', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('1', '432', 'Veterans Blvd.', 'Metairie', 'LA', '70002', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('2', '922', 'Sunshine Ct.', 'Metairie', 'LA', '70001', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `apt__suite_num`, `city`, `state`, `zip`, `address_description`) VALUES ('2', '2102', 'Esplanade Ave.', 'Suite 4', 'Metairie', 'LA', '70003', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('3', '5320', 'Bonnabel Blvd.', 'Metairie', 'LA', '70005', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('3', '1324', 'Edwards Ave.', 'Metairie', 'LA', '70004', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('4', '7432', 'Crane Way', 'Metairie', 'LA', '70001', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('4', '321', 'Houma Blvd.', 'Metairie', 'LA', '70006', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `apt__suite_num`, `city`, `state`, `zip`, `address_description`) VALUES ('5', '1014', 'Paige Dr.', 'Apt. 2', 'Metairie', 'LA', '70001', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('5', '1182', 'Newlands Rd.', 'Metairie', 'LA', '70006', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('6', '2704', 'Waverly Place', 'Metairie', 'LA', '70001', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('6', '1401', 'Pink St', 'Metairie', 'LA', '70005', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('7', '5231', 'Edenborn Ave\'92', 'Metairie', 'LA', '70006', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('7', '1622', 'West End Blvd.', 'New Orleans', 'LA', '70124', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('8', '750', 'Filmore Dr.', 'New Orleans', 'LA', '70124', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('8', '2424', 'Canal Blvd.', 'New Orleans', 'LA', '70126', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('9', '1522', 'St. Charles Ave.', 'New Orleans', 'LA', '70126', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('9', '2382', 'Clover St.', 'New Orleans', 'LA', '70122', 'W');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('10', '2468', 'Gladiolus St.', 'New Orleans', 'LA', '70122', 'H');\
+INSERT INTO `a_berry_project`.`address` (`customer_id`, `street_address_num`, `street_address_name`, `city`, `state`, `zip`, `address_description`) VALUES ('10', '3471', 'Rafael Court', 'New Orleans', 'LA', '70126', 'W');\
+\
+\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Tesla', 'Model 3', '327878347818b');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Ford', 'F150', '763773182367h');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('GMC', 'Sierra', '637827671832l');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Chevrolet\'92, 'Suburban', '473282378273d');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Cadillac', 'Escalade', '367462361636g');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Dodge', 'Ram', '623672362671y');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Chrysler', '300', '367827637362t');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Buick', 'Enclave', '652367677162b');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Mercedes-Benz', 'E350', '736278238723w');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Lincoln', 'Navigator', '374736721873j');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Pontiac', 'Tans-Am', '236276776371s');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('GMC', 'Yukon', '636373623716p');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Mercedes-Benz', 'E550', '236362632872l');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Tesla', 'Model X', '238781738786v');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Toyota', '4Runner', '372643761367k');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Toyota', 'Camry', '728346723487f');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Honda', 'Pilot', '673467663812s');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Ford', 'F250', '364634763428u');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Chevrolet, 'Traverse', '348839085589b');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Mazda', '3', '637347849382v');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Mazda', '6', '983742837487v');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Porsche', '911', '673463456434g');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Ford', 'Fusion', '323437673482r');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Bentley', 'Phantom', '437487458474o');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Jaguar', 'X7', '632383718793q');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Land Rove', 'Range Rover', '471387874836g');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Porsche', 'Macron', '234384834885f');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Honda', 'Accord', '437837833812n');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Toyota', 'Sienna', '384778478913t');\
+INSERT INTO `a_berry_project`.`automobile` (`make`, `model`, `vin`) VALUES ('Chevrolet', 'Volt', '194394895498e');\
+\
+INSERT INTO `a_berry_project`.`employees` (`employee_id`, `first_name`, `last_name`, `hire_date`) VALUES ('Ronald', 'Vappe', '1997-06-17');\
+INSERT INTO `a_berry_project`.`employees` (`employee_id`, `first_name`, `last_name`, `hire_date`) VALUES ('James', 'Green', '2004-01-10');\
+INSERT INTO `a_berry_project`.`employees` (`employee_id`, `first_name`, `last_name`, `hire_date`) VALUES ('Irene', 'Kelly', '2012-07-12');\
+INSERT INTO `a_berry_project`.`employees` (`employee_id`, `first_name`, `last_name`, `hire_date`) VALUES ('Kyle', 'Cook', '2020-04-19');\
+\'97got error message re emp_id value, added AUTO_INCREMENT to all tables\
+\
+\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-04-14', '3', '7', '24000.00', '4');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-01-27', '11', '10', '7000.50', '2');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2020-04-16', '9', '3', '4500.75', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-07-05', '25', '9', '10000.00', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-01-12', '21', '8', '35000.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-09-21', '16', '4', '14500.75', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-06-20', '7', '1', '18000.00', '2');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-05-26', '30', '5', '14000.00', '4');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-08-14', '22', '6', '12500.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-10-22', '14', '2', '10000.00', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-02-07', '4', '6', '19000.00', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-07-24', '27', '1', '17520.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-12-17', '19', '10', '12421.00', '4');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-07-21', '10', '4', '10450.00', '4');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-09-14', '29', '9', '9750.00', '2');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-01-23', '18', '2', '34950.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-05-08', '26', '7', '22500.00', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-06-24', '13', '8', '14950.00', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-04-17', '24', '3', '42350.00', '2');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-03-07', '17', '5', '18925.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-10-28', '1', '9', '12450.00', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-04-05', '6', '1', '18500.00', '2');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-09-17', '28', '7', '13525.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-07-23', '12', '4', '10950.00', '4');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-11-16', '5', '2', '9999.99', '2');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-05-17', '2', '10', '18725.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-03-02', '23', '6', '14925.00', '1');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-02-11', '15', '3', '11750.00', '3');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-08-24', '20', '5', '18525.00', '2');\
+INSERT INTO `a_berry_project`.`sales` (`date_of_sale`, `automobile_id`, `customer_id`, `total_price`, `employee_id`) VALUES ('2021-12-07', '8', '6', '21450.00', '4');\
+\
+\
+\
+\
+\
+\
+\
+ALTER TABLE `a_berry_project`.`address` \
+ADD INDEX `customer_id_fk_idx` (`customer_id` ASC) VISIBLE;\
+;\
+ALTER TABLE `a_berry_project`.`address` \
+ADD CONSTRAINT `customer_id_fk`\
+  FOREIGN KEY (`customer_id`)\
+  REFERENCES `a_berry_project`.`customers` (`customer_id`)\
+  ON DELETE NO ACTION\
+  ON UPDATE NO ACTION;\
+\
+ALTER TABLE `a_berry_project`.`sales` \
+ADD INDEX `automobile_id_fk_idx` (`automobile_id` ASC) VISIBLE,\
+ADD INDEX `customer_id_fk_idx` (`customer_id` ASC) VISIBLE,\
+ADD INDEX `employee_id_fk_idx` (`employee_id` ASC) VISIBLE;\
+;\
+ALTER TABLE `a_berry_project`.`sales` \
+ADD CONSTRAINT `s_automobile_id_fk`\
+  FOREIGN KEY (`automobile_id`)\
+  REFERENCES `a_berry_project`.`automobile` (`automobile_id`)\
+  ON DELETE NO ACTION\
+  ON UPDATE NO ACTION,\
+ADD CONSTRAINT `s_customer_id_fk`\
+  FOREIGN KEY (`customer_id`)\
+  REFERENCES `a_berry_project`.`customers` (`customer_id`)\
+  ON DELETE NO ACTION\
+  ON UPDATE NO ACTION,\
+ADD CONSTRAINT `s_employee_id_fk`\
+  FOREIGN KEY (`employee_id`)\
+  REFERENCES `a_berry_project`.`employees` (`employee_id`)\
+  ON DELETE NO ACTION\
+  ON UPDATE NO ACTION;\
+\
+\
+\
+\
+\
+
+\fs36 \
+\
+\
+\
+\
+\
+\
+TASK # 2
+\fs24 \
+\
+SELECT customers.customer_id, first_name, last_name, sales.automobile_id,\
+(SELECT automobile.make FROM automobile\
+WHERE automobile.automobile_id = sales.automobile_id)\
+FROM customers\
+JOIN sales\
+ON sales.customer_id = customers.customer_id;\
+\
+\
+SELECT customers.customer_id, customers.first_name, customers.last_name, address.street_address_num,\
+address.street_address_name, address.apt_suite_num, address.city, address.state, address.zip,\
+address.address_description\
+FROM address \
+JOIN customers\
+ON customers.customer_id = address.customer_id\
+WHERE address_description = 'H'\
+GROUP BY customers.customer_id, customers.first_name, customers.last_name, address.street_address_num,\
+address.street_address_name, address.apt_suite_num, address.city, address.state, address.zip,\
+address.address_description\
+;\
+\
+\
+
+\fs36 TASK #3\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 USE `a_berry_project`;\
+CREATE  OR REPLACE VIEW `address_view` AS\
+SELECT CONCAT_WS('-', street_address_num, street_address_name, apt_suite_num) AS Address\
+FROM address\
+;;\
+\
+\
+CREATE PROCEDURE height_converter_inches_rounded ()\
+BEGIN\
+SELECT customer_id, ROUND(height) * 12 AS Height_In_Inches\
+FROM customers\
+GROUP BY customer_id;\
+\
+\
+END\
+;\
+\
+USE `a_berry_project`;\
+DROP procedure IF EXISTS `height_converter_inches_rounded`;\
+\
+DELIMITER $$\
+USE `a_berry_project`$$\
+CREATE PROCEDURE height_converter_inches_rounded ()\
+BEGIN\
+SELECT customer_id, ROUND(height) * 12 AS Height_In_Inches\
+FROM customers\
+GROUP BY customer_id;\
+\
+\
+END\
+;$$\
+\
+DELIMITER ;\
+\
+\
+\
+CREATE DEFINER=`root`@`localhost` PROCEDURE `height_converter_to_inches`()\
+BEGIN\
+\
+SELECT customer_id, ROUND(height) * 12 \
+FROM customers\
+GROUP BY customer_id;\
+\
+END\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 TASK #4 Stored Procedures
+\fs24 \
+\
+CREATE PROCEDURE height_to_inches_precise  ()\
+BEGIN\
+SELECT customer_id,  ((FLOOR(height) * 12) + (height % 1) * 10) AS Height_Inches\
+FROM customers\
+GROUP BY customer_id;\
+\
+END\
+;\
+\
+SE `a_berry_project`;\
+DROP procedure IF EXISTS `height_to_inches_precise`;\
+\
+DELIMITER $$\
+USE `a_berry_project`$$\
+CREATE PROCEDURE height_to_inches_precise ()\
+BEGIN\
+SELECT customer_id,  ((FLOOR(height) * 12) + (height % 1) * 10) AS Height_Inches\
+FROM customers\
+GROUP BY customer_id;\
+\
+END\
+;$$\
+\
+DELIMITER ;\
+\
+CREATE DEFINER=`root`@`localhost` PROCEDURE `height_to_inches_precise`()\
+BEGIN\
+SELECT customer_id,  ((FLOOR(height) * 12) + (height % 1) * 10) AS Height_Inches\
+FROM customers\
+GROUP BY customer_id;\
+\
+END\
+\
+\
+\
+
+\fs36 Task 4 - FUNCTIONS\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 CREATE FUNCTION height_inches_rounded (\
+height float\
+)\
+RETURNS DECIMAL\
+DETERMINISTIC\
+BEGIN\
+\
+RETURN\
+(SELECT ROUND(height) * 12\
+FROM customers);\
+END\
+;\
+\
+\
+USE `a_berry_project`;\
+DROP function IF EXISTS `height_inches_rounded`;\
+\
+DELIMITER $$\
+USE `a_berry_project`$$\
+CREATE FUNCTION height_inches_rounded (\
+height float\
+)\
+RETURNS DECIMAL\
+DETERMINISTIC\
+BEGIN\
+\
+RETURN\
+(SELECT ROUND(height) * 12\
+FROM customers);\
+END\
+;$$\
+\
+DELIMITER ;\
+\
+\
+CREATE DEFINER=`root`@`localhost` FUNCTION `height_inches_rounded`(\
+height float\
+) RETURNS decimal(10,0)\
+    DETERMINISTIC\
+BEGIN\
+\
+RETURN\
+(SELECT ROUND(height) * 12\
+FROM customers);\
+END\
+\
+CREATE FUNCTION height_inches_presice (\
+height float\
+)\
+RETURNS DECIMAL\
+DETERMINISTIC\
+BEGIN\
+\
+RETURN\
+(SELECT ((FLOOR(height) * 12) + (height % 1) * 10)\
+FROM customers);\
+END\
+;\
+\
+USE `a_berry_project`;\
+DROP function IF EXISTS `height_inches_presice`;\
+\
+DELIMITER $$\
+USE `a_berry_project`$$\
+CREATE FUNCTION height_inches_presice (\
+height float\
+)\
+RETURNS DECIMAL\
+DETERMINISTIC\
+BEGIN\
+\
+RETURN\
+(SELECT ((FLOOR(height) * 12) + (height % 1) * 10)\
+FROM customers);\
+END\
+;$$\
+\
+DELIMITER ;\
+\
+\
+CREATE DEFINER=`root`@`localhost` FUNCTION `height_inches_presice`(\
+height float\
+) RETURNS decimal(10,0)\
+    DETERMINISTIC\
+BEGIN\
+\
+RETURN\
+(SELECT ((FLOOR(height) * 12) + (height % 1) * 10)\
+FROM customers);\
+END\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 TASK #5\
+\
+\
+SALES.JSON TABLE FILE\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 [\{"sale_id":1, "date_of_sale":"2021-04-14", "automobile_id":3, "customer_id":7, "total_price":24000.0, "employee_id":4\},\
+ \{"sale_id":2, "date_of_sale":"2021-01-27", "automobile_id":11, "customer_id":10, "total_price":7000.5, "employee_id":2\},\
+ \{"sale_id":3, "date_of_sale":"2020-04-16", "automobile_id":9, "customer_id":3, "total_price":4500.75, "employee_id":1\},\
+ \{"sale_id":4, "date_of_sale":"2021-07-05", "automobile_id":25, "customer_id":9, "total_price":10000.0, "employee_id":3\},\
+ \{"sale_id":5, "date_of_sale":"2021-01-12", "automobile_id":21, "customer_id":8, "total_price":35000.0, "employee_id":1\},\
+ \{"sale_id":6, "date_of_sale":"2021-09-21", "automobile_id":16, "customer_id":4, "total_price":14500.75, "employee_id":3\},\
+ \{"sale_id":7, "date_of_sale":"2021-06-20", "automobile_id":7, "customer_id":1, "total_price":18000.0, "employee_id":2\},\
+ \{"sale_id":8, "date_of_sale":"2021-05-26", "automobile_id":30, "customer_id":5, "total_price":14000.0, "employee_id":4\},\
+ \{"sale_id":9, "date_of_sale":"2021-08-14", "automobile_id":22, "customer_id":6, "total_price":12500.0, "employee_id":1\},\
+ \{"sale_id":10, "date_of_sale":"2021-10-22", "automobile_id":14, "customer_id":2, "total_price":10000.0, "employee_id":3\},\
+ \{"sale_id":11, "date_of_sale":"2021-02-07", "automobile_id":4, "customer_id":6, "total_price":19000.0, "employee_id":3\},\
+ \{"sale_id":12, "date_of_sale":"2021-07-24", "automobile_id":27, "customer_id":1, "total_price":17520.0, "employee_id":1\},\
+ \{"sale_id":13, "date_of_sale":"2021-12-17", "automobile_id":19, "customer_id":10, "total_price":12421.0, "employee_id":4\},\
+ \{"sale_id":14, "date_of_sale":"2021-07-21", "automobile_id":10, "customer_id":4, "total_price":10450.0, "employee_id":4\},\
+ \{"sale_id":15, "date_of_sale":"2021-09-14", "automobile_id":29, "customer_id":9, "total_price":9750.0, "employee_id":2\},\
+ \{"sale_id":16, "date_of_sale":"2021-01-23", "automobile_id":18, "customer_id":2, "total_price":34950.0, "employee_id":1\},\
+ \{"sale_id":17, "date_of_sale":"2021-05-08", "automobile_id":26, "customer_id":7, "total_price":22500.0, "employee_id":3\},\
+ \{"sale_id":18, "date_of_sale":"2021-06-24", "automobile_id":13, "customer_id":8, "total_price":14950.0, "employee_id":3\},\
+ \{"sale_id":19, "date_of_sale":"2021-04-17", "automobile_id":24, "customer_id":3, "total_price":42350.0, "employee_id":2\},\
+ \{"sale_id":20, "date_of_sale":"2021-03-07", "automobile_id":17, "customer_id":5, "total_price":18925.0, "employee_id":1\},\
+ \{"sale_id":21, "date_of_sale":"2021-10-28", "automobile_id":1, "customer_id":9, "total_price":12450.0, "employee_id":3\},\
+ \{"sale_id":22, "date_of_sale":"2021-04-05", "automobile_id":6, "customer_id":1, "total_price":18500.0, "employee_id":2\},\
+ \{"sale_id":23, "date_of_sale":"2021-09-17", "automobile_id":28, "customer_id":7, "total_price":13525.0, "employee_id":1\},\
+ \{"sale_id":24, "date_of_sale":"2021-07-23", "automobile_id":12, "customer_id":4, "total_price":10950.0, "employee_id":4\},\
+ \{"sale_id":25, "date_of_sale":"2021-11-16", "automobile_id":5, "customer_id":2, "total_price":9999.99, "employee_id":2\},\
+ \{"sale_id":26, "date_of_sale":"2021-05-17", "automobile_id":2, "customer_id":10, "total_price":18725.0, "employee_id":1\},\
+ \{"sale_id":27, "date_of_sale":"2021-03-02", "automobile_id":23, "customer_id":6, "total_price":14925.0, "employee_id":1\},\
+ \{"sale_id":28, "date_of_sale":"2021-02-11", "automobile_id":15, "customer_id":3, "total_price":11750.0, "employee_id":3\},\
+ \{"sale_id":29, "date_of_sale":"2021-08-24", "automobile_id":20, "customer_id":5, "total_price":18525.0, "employee_id":2\},\
+ \{"sale_id":30, "date_of_sale":"2021-12-07", "automobile_id":8, "customer_id":6, "total_price":21450.0, "employee_id":4\}]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 ADDRESS.JSON TABLE FILE\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 [\{"address_id":1, "customer_id":1, "street_address_num":"1921", "street_address_name":"State St.", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70006, "address_description":"H"\},\
+ \{"address_id":2, "customer_id":1, "street_address_num":"432", "street_address_name":"Veterans Blvd.", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70002, "address_description":"W"\},\
+ \{"address_id":3, "customer_id":2, "street_address_num":"922", "street_address_name":"Sunshine Ct.", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70001, "address_description":"H"\},\
+ \{"address_id":4, "customer_id":2, "street_address_num":"2102", "street_address_name":"Esplanade Ave.", "apt_suite_num":"Suite 4", "city":"Metairie", "state":"LA", "zip":70003, "address_description":"W"\},\
+ \{"address_id":5, "customer_id":3, "street_address_num":"5320", "street_address_name":"Bonnabel Blvd.", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70005, "address_description":"H"\},\
+ \{"address_id":6, "customer_id":3, "street_address_num":"1324", "street_address_name":"Edwards Ave.", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70004, "address_description":"W"\},\
+ \{"address_id":7, "customer_id":4, "street_address_num":"7432", "street_address_name":"Crane Way", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70001, "address_description":"H"\},\
+ \{"address_id":8, "customer_id":4, "street_address_num":"321", "street_address_name":"Houma Blvd.", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70006, "address_description":"W"\},\
+ \{"address_id":9, "customer_id":5, "street_address_num":"1014", "street_address_name":"Paige Dr.", "apt_suite_num":"Apt. 2", "city":"Metairie", "state":"LA", "zip":70001, "address_description":"H"\},\
+ \{"address_id":10, "customer_id":5, "street_address_num":"1182", "street_address_name":"Newlands Rd.", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70006, "address_description":"W"\},\
+ \{"address_id":11, "customer_id":6, "street_address_num":"2704", "street_address_name":"Waverly Place", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70001, "address_description":"H"\},\
+ \{"address_id":12, "customer_id":6, "street_address_num":"1401", "street_address_name":"Pink St", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70005, "address_description":"W"\},\
+ \{"address_id":13, "customer_id":7, "street_address_num":"5231", "street_address_name":"Edenborn Ave\\u2019", "apt_suite_num":"", "city":"Metairie", "state":"LA", "zip":70006, "address_description":"H"\},\
+ \{"address_id":14, "customer_id":7, "street_address_num":"1622", "street_address_name":"West End Blvd.", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70124, "address_description":"W"\},\
+ \{"address_id":15, "customer_id":8, "street_address_num":"750", "street_address_name":"Filmore Dr.", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70124, "address_description":"H"\},\
+ \{"address_id":16, "customer_id":8, "street_address_num":"2424", "street_address_name":"Canal Blvd.", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70126, "address_description":"W"\},\
+ \{"address_id":17, "customer_id":9, "street_address_num":"1522", "street_address_name":"St. Charles Ave.", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70126, "address_description":"H"\},\
+ \{"address_id":18, "customer_id":9, "street_address_num":"2382", "street_address_name":"Clover St.", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70122, "address_description":"W"\},\
+ \{"address_id":19, "customer_id":10, "street_address_num":"2468", "street_address_name":"Gladiolus St.", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70122, "address_description":"H"\},\
+ \{"address_id":20, "customer_id":10, "street_address_num":"3471", "street_address_name":"Rafael Court", "apt_suite_num":"", "city":"New Orleans", "state":"LA", "zip":70126, "address_description":"W"\}]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 CUSTOMERS.JSON FILE\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 [\{"customer_id":1, "first_name":"Cathy", "last_name":"Smith", "date_of_birth":"1981-02-17", "height":5.7, "weight":120\},\
+ \{"customer_id":2, "first_name":"Tracy", "last_name":"Andrews", "date_of_birth":"1972-03-01", "height":5.5, "weight":104\},\
+ \{"customer_id":3, "first_name":"Giselle", "last_name":"Cho", "date_of_birth":"1975-04-21", "height":5.1, "weight":130\},\
+ \{"customer_id":4, "first_name":"Claire", "last_name":"Brown", "date_of_birth":"1984-09-21", "height":5.5, "weight":128\},\
+ \{"customer_id":5, "first_name":"Amanda", "last_name":"Kent", "date_of_birth":"1970-03-26", "height":5.5, "weight":110\},\
+ \{"customer_id":6, "first_name":"Steven", "last_name":"Bow", "date_of_birth":"1972-08-18", "height":5.1, "weight":180\},\
+ \{"customer_id":7, "first_name":"Leon", "last_name":"Driver", "date_of_birth":"1967-05-12", "height":5.11, "weight":175\},\
+ \{"customer_id":8, "first_name":"Patrick", "last_name":"Klien", "date_of_birth":"1973-02-19", "height":6.2, "weight":187\},\
+ \{"customer_id":9, "first_name":"Mark", "last_name":"Fields", "date_of_birth":"1913-12-04", "height":5.8, "weight":160\},\
+ \{"customer_id":10, "first_name":"Carl", "last_name":"Newroad", "date_of_birth":"1976-10-21", "height":5.9, "weight":200\}]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 EMPLOYEES.JSON FILE
+\fs24 \
+[\{"employee_id":1, "first_name":"Ronald", "last_name":"Vappe", "hire_date":"1997-06-17"\},\
+ \{"employee_id":2, "first_name":"James", "last_name":"Green", "hire_date":"2004-01-10"\},\
+ \{"employee_id":3, "first_name":"Irene", "last_name":"Kelly", "hire_date":"2012-07-12"\},\
+ \{"employee_id":4, "first_name":"Kyle", "last_name":"Cook", "hire_date":"2020-04-19"\}]\
+\
+
+\fs36 AUTOMOBILE.JSON FILE\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 [\{"automobile_id":1, "make":"Tesla", "model":"Model 3", "vin":"327878347818b"\},\
+ \{"automobile_id":2, "make":"Ford", "model":"F150", "vin":"763773182367h"\},\
+ \{"automobile_id":3, "make":"GMC", "model":"Sierra", "vin":"637827671832l"\},\
+ \{"automobile_id":4, "make":"Chevrolet", "model":"Suburban", "vin":"473282378273d"\},\
+ \{"automobile_id":5, "make":"Cadillac", "model":"Escalade", "vin":"367462361636g"\},\
+ \{"automobile_id":6, "make":"Dodge", "model":"Ram", "vin":"623672362671y"\},\
+ \{"automobile_id":7, "make":"Chrysler", "model":"300", "vin":"367827637362t"\},\
+ \{"automobile_id":8, "make":"Buick", "model":"Enclave", "vin":"652367677162b"\},\
+ \{"automobile_id":9, "make":"Mercedes-Benz", "model":"E350", "vin":"736278238723w"\},\
+ \{"automobile_id":10, "make":"Lincoln", "model":"Navigator", "vin":"374736721873j"\},\
+ \{"automobile_id":11, "make":"Pontiac", "model":"Tans-Am", "vin":"236276776371s"\},\
+ \{"automobile_id":12, "make":"GMC", "model":"Yukon", "vin":"636373623716p"\},\
+ \{"automobile_id":13, "make":"Mercedes-Benz", "model":"E550", "vin":"236362632872l"\},\
+ \{"automobile_id":14, "make":"Tesla", "model":"Model X", "vin":"238781738786v"\},\
+ \{"automobile_id":15, "make":"Toyota", "model":"4Runner", "vin":"372643761367k"\},\
+ \{"automobile_id":16, "make":"Toyota", "model":"Camry", "vin":"728346723487f"\},\
+ \{"automobile_id":17, "make":"Honda", "model":"Pilot", "vin":"673467663812s"\},\
+ \{"automobile_id":18, "make":"Ford", "model":"F250", "vin":"364634763428u"\},\
+ \{"automobile_id":19, "make":"Chevrolet", "model":"Traverse", "vin":"348839085589b"\},\
+ \{"automobile_id":20, "make":"Mazda", "model":"3", "vin":"637347849382v"\},\
+ \{"automobile_id":21, "make":"Mazda", "model":"6", "vin":"983742837487v"\},\
+ \{"automobile_id":22, "make":"Porsche", "model":"911", "vin":"673463456434g"\},\
+ \{"automobile_id":23, "make":"Ford", "model":"Fusion", "vin":"323437673482r"\},\
+ \{"automobile_id":24, "make":"Bentley", "model":"Phantom", "vin":"437487458474o"\},\
+ \{"automobile_id":25, "make":"Jaguar", "model":"X7", "vin":"632383718793q"\},\
+ \{"automobile_id":26, "make":"Land Rove", "model":"Range Rover", "vin":"471387874836g"\},\
+ \{"automobile_id":27, "make":"Porsche", "model":"Macron", "vin":"234384834885f"\},\
+ \{"automobile_id":28, "make":"Honda", "model":"Accord", "vin":"437837833812n"\},\
+ \{"automobile_id":29, "make":"Toyota", "model":"Sienna", "vin":"384778478913t"\},\
+ \{"automobile_id":30, "make":"Chevrolet", "model":"Volt", "vin":"194394895498e"\}]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+}
